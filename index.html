@@ -2,23 +2,64 @@
 
   <head>
     <title>High-Low</title>
+
+    <style>
+      body {
+        background: #3a3a3a;
+        color: #fff;
+        text-align: center;
+        font-family: sans-serif;
+      }
+      h1 {
+        font-size: 50px;
+        font-weight: 100;
+      }
+      button{
+        height: 282px;
+        width: 355px;
+        border: none;
+        font-size: 40px;
+      }
+      #high{
+        background:url(arrow-up.png) center no-repeat;
+      }
+      #low{
+        background:url(arrow-down.png) center no-repeat;
+      }
+      .number{
+        font-size: 100px;
+      }
+      .container {
+        position: relative;
+        display: inline-block;
+      }
+      .prompt {
+        position: absolute;
+        top: 303;
+        left: -370;
+        font-size: 30px;
+        text-align: right;
+        width: 350px;
+      }
+    </style>
   </head>
 
   <body>
-      <h1>High-Low</h1>
+      <h1>High or Low</h1>
 
-      <div>
-	Is the number higher or lower than 
-	<span id="compare"></span>
-	?
+      <div class="container">
+        <div class="prompt">Is the number higher or lower?</div>
+        <button id="high">High</button>
+        <div class="number" id="compare"></div>
+          <button id="low">Low</button>
+
 	</div>
 
-      <button id="low">Low</button>
-      <button id="high">High</button>
+
 
 
       <script>
-		
+
 	function getRandomInt(min, max) {
     	return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
@@ -43,7 +84,7 @@
 	} else {
 		alert('Sorry, try again.')
 	}
-        
+
       })
 
 	high.addEventListener('click', function () {
@@ -51,9 +92,9 @@
 		alert('Correct, you are the winner!')
 	success()
 	} else {
-		alert('Sorry, try again.')
+		alert('Try again.')
 	}
-        
+
       })
 
 	compare.innerHTML = previous
